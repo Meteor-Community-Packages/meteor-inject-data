@@ -1,5 +1,8 @@
 # Change Log
 
+### v2.1.0
+* Add `InjectData._disableInjection` flag to disable payload injection so it can be manually inserted by different SSR techniques.
+
 ### v2.0.5
 * Override `meteorhacks:inject-data` if both packages are present, for greater backwards compatibility
 

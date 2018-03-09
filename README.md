@@ -32,3 +32,11 @@ InjectData.getData("some-key", function(data) {
   console.log(data);
 });
 ```
+
+## Disable Automatic Injection
+
+You may wish to manually inject the data payload if you are using SSR.
+
+```js
+InjectData._disableInjection = true;
+```
