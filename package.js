@@ -1,62 +1,31 @@
-var fs = Npm.require('fs');
-var path = Npm.require('path');
-
+/* global Package */
 Package.describe({
-  "summary": "A way to inject data to the client with initial HTML",
-  "version": "2.1.0",
-  "git": "https://github.com/abecks/meteor-inject-data",
-  "name": "staringatlights:inject-data"
-});
+	summary: 'A way to inject data to the client with initial HTML',
+	version: '2.2.0',
+	git: 'https://github.com/abecks/meteor-inject-data',
+	name: 'staringatlights:inject-data',
+})
 
-Package.onUse(function (api) {
-  configure(api);
-  api.use('webapp');
-  api.use('meteorhacks:inject-data@2.0.0', ['client', 'server'], { weak: true });
-  api.export('InjectData', ['client', 'server']);
-});
+Package.onUse(function(api) {
+	api.versionsFrom('METEOR@1.6.1')
+	api.use('webapp', 'server')
+	api.use(['ejson', 'underscore', 'ecmascript'], ['server', 'client'])
+	api.mainModule('lib/namespace.js', ['server', 'client'])
+	api.addFiles('lib/utils.js', ['server', 'client'])
+	api.addFiles('lib/server.js', 'server')
+	api.addFiles('lib/client.js', 'client')
+	api.export('InjectData', ['client', 'server'])
+})
 
-Package.onTest(function (api) {
-  configure(api);
-  api.use('webapp', 'server');
-  api.use('tinytest', ['client', 'server']);
-  api.use('http', 'server');
-  api.use('random', 'server');
-  api.use('meteorhacks:picker@1.0.1', 'server');
-
-  api.addFiles([
-    'tests/utils.js'
-  ], ['client', 'server']);
-
-  api.addFiles([
-    'tests/client.js'
-  ], 'client');
-
-  api.addFiles([
-    'tests/integration.js',
-    'tests/init.js'
-  ], 'server');
-});
-
-function configure(api) {
-  api.versionsFrom('METEOR@0.9.3');
-
-  api.use(['ejson', 'underscore'], ['server', 'client']);
-  api.use('jquery', 'client');
-
-  api.addFiles([
-    'lib/inject.html',
-  ], 'server', { isAsset: true });
-
-  api.addFiles([
-    'lib/namespace.js',
-    'lib/utils.js',
-  ], ['client', 'server']);
-
-  api.addFiles([
-    'lib/server.js'
-  ], 'server');
-
-  api.addFiles([
-    'lib/client.js'
-  ], 'client');
-}
+Package.onTest(function(api) {
+	api.use('staringatlights:inject-data')
+	api.use('webapp', 'server')
+	api.use(['underscore', 'tinytest'], ['client', 'server'])
+	api.use('http', 'server')
+	api.use('random', 'server')
+	api.use('meteorhacks:picker@1.0.1', 'server')
+	api.addFiles(['tests/init.js'], 'server')
+	api.addFiles(['tests/utils.js'], ['client', 'server'])
+	api.addFiles(['tests/client.js'], 'client')
+	api.addFiles(['tests/integration.js', 'tests/init.js'], 'server')
+})
