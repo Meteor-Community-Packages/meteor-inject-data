@@ -27,5 +27,5 @@ Package.onTest(function(api) {
 	api.addFiles(['tests/init.js'], 'server')
 	api.addFiles(['tests/utils.js'], ['client', 'server'])
 	api.addFiles(['tests/client.js'], 'client')
-	api.addFiles(['tests/integration.js', 'tests/init.js'], 'server')
+	api.addFiles(['tests/integration.js'], 'server')
 })
