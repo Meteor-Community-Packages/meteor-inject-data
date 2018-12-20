@@ -1,7 +1,7 @@
 /* global Package */
 Package.describe({
 	summary: 'A way to inject data to the client with initial HTML',
-	version: '2.2.0',
+	version: '2.2.1',
 	git: 'https://github.com/abecks/meteor-inject-data',
 	name: 'staringatlights:inject-data',
 })
