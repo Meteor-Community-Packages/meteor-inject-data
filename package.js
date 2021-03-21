@@ -1,12 +1,12 @@
 /* global Package */
 Package.describe({
 	summary: 'A way to inject data to the client with initial HTML',
-	version: '2.3.0',
-	git: 'https://github.com/abecks/meteor-inject-data',
-	name: 'staringatlights:inject-data',
+	version: '2.3.1',
+	git: 'https://github.com/Meteor-Community-Packages/meteor-inject-data',
+	name: 'communitypackages:inject-data',
 })
 
-Package.onUse(function(api) {
+Package.onUse(function (api) {
 	api.versionsFrom('METEOR@1.6.1')
 	api.use('webapp', 'server')
 	api.use(['ejson', 'ecmascript'], ['server', 'client'])
@@ -17,7 +17,7 @@ Package.onUse(function(api) {
 	api.export('InjectData', ['client', 'server'])
 })
 
-Package.onTest(function(api) {
+Package.onTest(function (api) {
 	api.use('staringatlights:inject-data')
 	api.use('webapp', 'server')
 	api.use(['underscore', 'tinytest'], ['client', 'server'])

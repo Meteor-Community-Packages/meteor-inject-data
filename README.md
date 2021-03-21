@@ -1,29 +1,27 @@
-# staringatlights:inject-data
+# communitypackages:inject-data
 
-#### A way to inject data to the client with initial HTML. A continuation of `meteorhacks:inject-data`.
+A way to inject data to the client with initial HTML. A continuation of `meteorhacks:inject-data`.
 
-This is the package used by [`fast-render`](https://github.com/meteorhacks/fast-render) to push data to the client with the initial HTML.
-
-## Upgrading from 2.0.0
-
-Due to changes to Meteor 1.6.1, the way Inject Data internally accumulates the data payload has changed. The payload was previously attached to the `response` object, which is now unavailable. It is now attached to the `request.headers` object (which is the only object that seems to persist between the `server-renders` `sink.request` object and `WebAppInternals.registerBoilerplateDataCallback`'s `request` object, unfortunately). If you were calling InjectData methods directly (eg. `pushData` you must now pass in the `request` object instead of the `response`).
+> This is the package used by [`fast-render`](https://github.com/Meteor-Community-Packages/meteor-fast-render) to push data to the client with the initial HTML.
 
 ## Installation
 
-meteor add staringatlights:inject-data
+```sh
+meteor add communitypackages:inject-data
+```
 
 ## Push Data
 
 We need to use this package with a server side router. We've extended nodejs `http.OutgoingMessage` and provides an API like this.
 
-Here is an example with [picker](https://github.com/meteorhacks/picker).
+Here is an example with [picker](https://github.com/Meteor-Community-Packages/picker).
 
 ```js
 Picker.route('/', function(params, req, res, next) {
-	var ejsonData = { aa: 10 }
-	InjectData.pushData(req, 'some-key', ejsonData)
-	// make sure to move the routing forward.
-	next()
+  var ejsonData = { aa: 10 }
+  InjectData.pushData(req, 'some-key', ejsonData)
+  // make sure to move the routing forward.
+  next()
 })
 ```
 
@@ -33,7 +31,7 @@ You can get data with the following API from the **client**.
 
 ```js
 InjectData.getData('some-key', function(data) {
-	console.log(data)
+  console.log(data)
 })
 ```
 
