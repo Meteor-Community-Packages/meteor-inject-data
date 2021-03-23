@@ -18,12 +18,12 @@ Package.onUse(function (api) {
 })
 
 Package.onTest(function (api) {
-	api.use('staringatlights:inject-data')
+	api.use('communitypackages:inject-data')
 	api.use('webapp', 'server')
 	api.use(['underscore', 'tinytest'], ['client', 'server'])
 	api.use('http', 'server')
 	api.use('random', 'server')
-	api.use('meteorhacks:picker@1.0.1', 'server')
+	api.use('communitypackages:picker@1.0.1', 'server')
 	api.addFiles(['tests/init.js'], 'server')
 	api.addFiles(['tests/utils.js'], ['client', 'server'])
 	api.addFiles(['tests/client.js'], 'client')
