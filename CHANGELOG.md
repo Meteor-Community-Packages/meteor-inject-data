@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.3.2
+
+- Fix issue that may occur if staringatlights:inject-data is also installed and causes the issue with `WebAppInternals.registerBoilerplateDataCallback` being called after `server-render` to return due to `WebAppInterals.RegisterBoilerplateDataCallback` reusing the address if the same key is used.
+
 ## 2.3.1
 
 - released as `communitypackages:inject-data`
