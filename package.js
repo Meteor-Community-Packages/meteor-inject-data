@@ -21,7 +21,7 @@ Package.onTest(function (api) {
 	api.use('communitypackages:inject-data')
 	api.use('webapp', 'server')
 	api.use(['underscore', 'tinytest'], ['client', 'server'])
-	api.use('http', 'server')
+	api.use('http', 'server') // TODO replace with fetch
 	api.use('random', 'server')
 	api.use('communitypackages:picker@1.1.1', 'server')
 	api.addFiles(['tests/init.js'], 'server')
