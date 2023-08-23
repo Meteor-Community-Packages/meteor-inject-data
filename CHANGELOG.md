@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.3.3
+
+- Meteor 3.0 compatibility
+
 ## 2.3.2
 
 - Fix issue that may occur if staringatlights:inject-data is also installed and causes the issue with `WebAppInternals.registerBoilerplateDataCallback` being called after `server-render` to return due to `WebAppInterals.RegisterBoilerplateDataCallback` reusing the address if the same key is used.
