@@ -4,6 +4,8 @@
 
 - Meteor 3.0 compatibility in packages versions for testing
 - Fix namespace to use `communitypackages:inject-data` instead of `meteorhacks:inject-data
+- Add lint test action to GitHub
+- Update development dependencies
 
 ## 2.3.2
 
