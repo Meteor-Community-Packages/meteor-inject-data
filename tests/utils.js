@@ -1,3 +1,5 @@
+/* global Tinytest, InjectData */
+
 Tinytest.add('Utils - encode decode', function(test) {
 	var data = { aa: 10, date: new Date() }
 	var str = InjectData._encode(data)

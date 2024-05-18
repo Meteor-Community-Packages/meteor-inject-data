@@ -1,3 +1,9 @@
+/* global Tinytest, InjectData, Npm */
+import { Picker } from 'meteor/communitypackages:picker'
+import { Random } from 'meteor/random'
+import { HTTP } from 'meteor/http'
+import _ from 'meteor/underscore'
+
 Tinytest.add('integration - sending some data', function(test) {
 	var path = '/' + Random.id()
 	Picker.route(path, function(params, req, res, next) {
