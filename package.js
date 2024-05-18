@@ -1,13 +1,13 @@
 /* global Package */
 Package.describe({
 	summary: 'A way to inject data to the client with initial HTML',
-	version: '2.3.3-alpha.1',
+	version: '2.3.3',
 	git: 'https://github.com/Meteor-Community-Packages/meteor-inject-data',
 	name: 'communitypackages:inject-data',
 })
 
 Package.onUse(function (api) {
-	api.versionsFrom(['1.6.1', '3.0-alpha.11'])
+	api.versionsFrom(['1.6.1', '3.0-rc.1'])
 	api.use('webapp', 'server')
 	api.use(['ejson', 'ecmascript'], ['server', 'client'])
 	api.mainModule('lib/namespace.js', ['server', 'client'])

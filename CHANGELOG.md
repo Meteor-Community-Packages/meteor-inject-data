@@ -2,7 +2,8 @@
 
 ## 2.3.3
 
-- Meteor 3.0 compatibility
+- Meteor 3.0 compatibility in packages versions for testing
+- Fix namespace to use `communitypackages:inject-data` instead of `meteorhacks:inject-data
 
 ## 2.3.2
 
