@@ -39,5 +39,14 @@
 		"node_modules",
 		"tests"
 	],
-	"settings": {}
+	"settings": {
+		"import/resolver": {
+			"meteor": {
+				"extensions": [
+					".js",
+					".jsx"
+				]
+			}
+		}
+	}
 }

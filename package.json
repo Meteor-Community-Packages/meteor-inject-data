@@ -4,12 +4,13 @@
 		"publish-release": "rimraf ./node_modules && meteor publish && meteor npm i --only=dev"
 	},
 	"devDependencies": {
-		"@types/node": "^18.6.5",
 		"@types/meteor": "2.7.1",
+		"@types/node": "^18.6.5",
 		"@typescript-eslint/eslint-plugin": "^5.33.0",
 		"@typescript-eslint/parser": "^5.33.0",
 		"eslint": "^8.21.0",
 		"eslint-config-standard": "^17.0.0",
+		"eslint-import-resolver-meteor": "^0.4.0",
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-promise": "^6.0.0",

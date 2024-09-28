@@ -1,21 +1,26 @@
-Tinytest.add('Utils - encode decode', function (test) {
-  const data = { aa: 10, date: new Date() };
-  const str = InjectData._encode(data);
-  const decoded = InjectData._decode(str);
+import { assert } from 'chai';
 
-  test.equal(decoded.aa, data.aa);
-  test.equal(decoded.date.getTime(), data.date.getTime());
+describe('inject-data - utils', function () {
+  it('should encode and decode injected data', function () {
+    const data = { aa: 10, date: new Date() };
+    const str = InjectData._encode(data);
+    const decoded = InjectData._decode(str);
+
+    assert.equal(decoded.aa, data.aa);
+    assert.equal(decoded.date.getTime(), data.date.getTime());
+  });
+
+  it('should decode empty data', function () {
+    const str = '';
+    const decoded = InjectData._decode(str);
+    assert.equal(decoded, null);
+  });
+
+  it('should encode special chars', function () {
+    const data = { special: '#://' };
+    const str = InjectData._encode(data);
+
+    assert.isFalse(/#/.test(str));
+  });
 });
 
-Tinytest.add('Utils - decode empty', function (test) {
-  const str = '';
-  const decoded = InjectData._decode(str);
-  test.equal(decoded, null);
-});
-
-Tinytest.add('Utils - encode decode special chars', function (test) {
-  const data = { special: '#://' };
-  const str = InjectData._encode(data);
-
-  test.isFalse(/#/.test(str));
-});
