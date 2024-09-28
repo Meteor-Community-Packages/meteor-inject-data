@@ -1,0 +1,43 @@
+{
+	"env": {
+		"browser": true,
+		"es2022": true,
+		"node": true
+	},
+	"extends": [
+		"standard",
+		"plugin:@typescript-eslint/eslint-recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": "./tsconfig.json",
+		"ecmaFeatures": {},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": [
+		"@typescript-eslint"
+	],
+	"rules": {
+		"semi": [
+			"error",
+			"always"
+		],
+		"comma-dangle": [
+			"error",
+			"always-multiline"
+		],
+		"camelcase": 0,
+		"multiline-ternary": "off",
+		"no-use-before-define": "off",
+		"@typescript-eslint/no-use-before-define": "off",
+		"@typescript-eslint/no-unused-vars": "error",
+		"no-unused-vars": "off",
+		"no-useless-constructor": "off"
+	},
+	"ignorePatterns": [
+		"node_modules",
+		"tests"
+	],
+	"settings": {}
+}

@@ -1,23 +1,21 @@
-/* global Tinytest, InjectData */
+Tinytest.add('Utils - encode decode', function (test) {
+  const data = { aa: 10, date: new Date() };
+  const str = InjectData._encode(data);
+  const decoded = InjectData._decode(str);
 
-Tinytest.add('Utils - encode decode', function(test) {
-	var data = { aa: 10, date: new Date() }
-	var str = InjectData._encode(data)
-	var decoded = InjectData._decode(str)
+  test.equal(decoded.aa, data.aa);
+  test.equal(decoded.date.getTime(), data.date.getTime());
+});
 
-	test.equal(decoded.aa, data.aa)
-	test.equal(decoded.date.getTime(), data.date.getTime())
-})
+Tinytest.add('Utils - decode empty', function (test) {
+  const str = '';
+  const decoded = InjectData._decode(str);
+  test.equal(decoded, null);
+});
 
-Tinytest.add('Utils - decode empty', function(test) {
-	var str = ''
-	var decoded = InjectData._decode(str)
-	test.equal(decoded, null)
-})
+Tinytest.add('Utils - encode decode special chars', function (test) {
+  const data = { special: '#://' };
+  const str = InjectData._encode(data);
 
-Tinytest.add('Utils - encode decode special chars', function(test) {
-	var data = { special: '#://' }
-	var str = InjectData._encode(data)
-
-	test.isFalse(/#/.test(str))
-})
+  test.isFalse(/#/.test(str));
+});
