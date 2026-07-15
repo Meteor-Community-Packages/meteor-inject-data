@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.0
+
+- Meteor 3 compatibility.
+- Register the `WebAppInternals.registerBoilerplateDataCallback` at module load time instead of
+  inside `Meteor.startup`, so inject-data's boilerplate callback is registered before other
+  callbacks (notably `server-render`). This ordering is required for the data `<script>` to be
+  injected reliably during SSR.
+
 ## 2.3.3
 
 - Meteor 3.0 compatibility in packages versions for testing
